@@ -40,7 +40,7 @@ namespace Sitecore.Support.XConnect.Segmentation.Predicates.Contacts
     {
       return contact => contact.AutomationPlanExit().Results
         .Where(a => a.AutomationPlanDefinitionId == AutomationCampaignId)
-        .Any(a => a.ExitDateTime >= MinDate && a.ExitDateTime <= MaxDate);
+        .Any(a => a.ExitDateTime >= MinDate.ToUniversalTime() && a.ExitDateTime <= MaxDate.ToUniversalTime());
     }
   }
 }

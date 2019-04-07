@@ -24,7 +24,7 @@ namespace Sitecore.Support.XConnect.Segmentation.Predicates.Contacts
     public Expression<Func<Contact, bool>> CreateContactSearchQuery(
       IContactSearchQueryContext context)
     {
-      return contact => contact.EngagementMeasures().MostRecentInteractionStartDateTime <= Date;
+      return contact => contact.EngagementMeasures().MostRecentInteractionStartDateTime <= Date.ToUniversalTime();
     }
   }
 }

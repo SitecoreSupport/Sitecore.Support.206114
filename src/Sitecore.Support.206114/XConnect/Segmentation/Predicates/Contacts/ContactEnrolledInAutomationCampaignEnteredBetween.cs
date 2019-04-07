@@ -41,7 +41,7 @@ namespace Sitecore.Support.XConnect.Segmentation.Predicates.Contacts
     {
       return contact => contact.AutomationPlanEnrollmentCache().ActivityEnrollments
         .Where(e => e.AutomationPlanDefinitionId == AutomationCampaignId)
-        .Any(e => e.ActivityEntryDate >= MinDate && e.ActivityEntryDate <= MaxDate);
+        .Any(e => e.ActivityEntryDate >= MinDate.ToUniversalTime() && e.ActivityEntryDate <= MaxDate.ToUniversalTime());
     }
   }
 }
